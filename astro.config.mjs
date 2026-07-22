@@ -10,6 +10,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   redirects: {
       '/about': {
           status: 301,
@@ -53,5 +54,7 @@ export default defineConfig({
       service: passthroughImageService()
     },
 
-    adapter: cloudflare(),
+    adapter: cloudflare({
+        imageService: "passthrough",
+    }),
 });
